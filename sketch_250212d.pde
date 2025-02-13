@@ -4,7 +4,7 @@
 
 // VARIABLES ============================================================
 int bg1, bg2, bg3;
-int bunny;
+int bus;
 
 
 
@@ -17,7 +17,7 @@ void setup() { // =======================================================
   bg3 = 800;
 
   // intitialize bunny
-  bunny = 100;
+  bus = 100;
 
 } // END SETUP ==========================================================
 
@@ -29,16 +29,17 @@ void draw () { // =======================================================
   //sky
   background(#BCEDFF);
   
-  // background hills
-  fill(#109B3F);
-  ellipse(bg1, 400, 400,400);
-  ellipse(bg2, 400, 400,400);
-  ellipse(bg3, 400, 400,400);
-  //move hills
+  // background buildings 
+  fill(0);
+  rect(bg1, 100, 200, 600);
+  rect(bg2, 100, 200, 600);
+  rect(bg3, 100, 200, 600);
+  
+  //move buildings
   bg1 = bg1 +2;
   bg2 = bg2 +2;
   bg3 = bg3 +2; 
-  // loop the hilla
+  // loop the buildings 
   if (bg1 > 1000) {
     bg1 = -200;
   }
@@ -51,15 +52,24 @@ void draw () { // =======================================================
   
   
   //ground
-  fill(#FFE26C);
-  rect(0, 400, 800, 200);
-
-  //blob
+  fill(#4D4D52);
+  rect(0, 450, 800, 150);
   fill(255);
-  ellipse(bunny, 400, 200, 200); //head
-  ellipse(bunny-50, 300, 50, 100); //left ear
-  ellipse(bunny+50, 300, 50, 100); //right ear
-  // move bunny
-  bunny = bunny + 10;
+  rect(30, 510, 100, 25);
+  rect(230, 510, 100, 25);
+  rect(430, 510, 100, 25);
+  rect(630, 510, 100, 25);
+
+  //bus
+  fill(255);
+  rect(bus, 400, 300, 200);
+ 
+  // move bus
+  bus = bus + 10;
+  
+  //loop bus
+  if (bus > 1000) {
+    bus = -200;
+    }
 
 } // END DRAW ===========================================================
