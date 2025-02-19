@@ -3,7 +3,7 @@
 // 2-3
 
 // VARIABLES ============================================================
-int bg1, bg2, bg3;
+int bg1, bg2, bg3, bg4;
 int bus;
 int compassX;
 
@@ -21,7 +21,7 @@ void setup() { // =======================================================
   bus = 100;
   
   // intitialize compassX
-  compassX = 1000;
+  compassX = -400;
   
 } // END SETUP ==========================================================
 
@@ -32,17 +32,27 @@ void setup() { // =======================================================
 void draw () { // =======================================================
   //sky
   background(#BCEDFF);
+  
+  strokeWeight(0);
 
   // background buildings
   fill(#B2B1B7);
-  rect(bg1, 100, 200, 600);
-  rect(bg2, 100, 200, 600);
-  rect(bg3, 100, 200, 600);
+  rect(bg1, 130, 200, 500);
+  rect(bg1 + 200, 250, 300, 500);
+  rect(bg2, 130, 200, 500);
+  rect(bg3, 130, 200, 500);
+ 
+  //towers
+  fill(#FFDD7E);
+  rect(300, 300, 110, 300);
+  rect(350, 390, 200, 90);
+  fill(#615D6A);
+  triangle(300, 300, 360, 200, 410, 300);
 
   //move buildings
-  bg1 = bg1 +2;
-  bg2 = bg2 +2;
-  bg3 = bg3 +2;
+  bg1 = bg1 + 1;
+  bg2 = bg2 + 1;
+  bg3 = bg3 + 1;
   // loop the buildings
   if (bg1 > 1000) {
     bg1 = -200;
@@ -54,7 +64,7 @@ void draw () { // =======================================================
     bg3 = -200;
   }
 
-
+  
   //ground
   fill(#4D4D52);
   rect(0, 450, 800, 150);
@@ -67,24 +77,38 @@ void draw () { // =======================================================
   compass(compassX, 0);
   
   // move bus
-  compassX = compassX - 2;
+  //compassX = compassX + 3;
   
   //loop bus
-  if (compassX < -400) {
-    compassX = 1000;
+  if (compassX > 900) {
+    compassX = -500;
   }
 
 } // END DRAW ===========================================================
 
 //              Paremeters
-void compass(int x, int y) { //======================================================
+void compass(int x, int y) { //==========================================
   pushMatrix();
   translate (x, y);
+ 
+  //Ferris Wheel
+  fill(255);
+  ellipse(0, 300, 300, 300);
+  
   //bus
   fill(#C91C1C);
-  rect(bus, 400, 320, 180);
+  rect(150, 470, 300, 60);
+  rect(100, 360, 320, 170);
+  fill(#F5E8BE);
+  rect(100, 430, 320, 8);
   fill(0);
-  ellipse(450, 550, 100, 100);
+  ellipse(360, 530, 60, 60);
+  ellipse(170, 530, 60, 60);
+  
+  
+  
+  
+  
   popMatrix();
   
   
